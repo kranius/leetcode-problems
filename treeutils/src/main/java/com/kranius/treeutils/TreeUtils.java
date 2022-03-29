@@ -59,4 +59,11 @@ public class TreeUtils<T> {
 		return isSymmetricHelper(left.left, right.right) && isSymmetricHelper(left.right, right.left);
 	}
 	
+	// 104. maximum depth of binary tree
+	public int maxDepth(TreeNode<T> root) {
+		if (root == null)
+			return 0;
+		return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
+	}
+	
 }
