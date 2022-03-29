@@ -9,7 +9,7 @@ public class TreeUtils<T> {
 	// 94. Binary Tree Inorder Traversal
 	// inorder traversal = left first
 	public List<T> inorderTraversal(TreeNode<T> root) {
-		List<T> result = new ArrayList<T>();
+		List<T> result = new ArrayList<>();
 		
 		inorderTraversalHelper(root, result);
 		
