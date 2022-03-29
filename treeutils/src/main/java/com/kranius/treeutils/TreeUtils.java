@@ -40,4 +40,23 @@ public class TreeUtils<T> {
 		
 		return false;
 	}
+	
+	// 101. Symmetric Tree
+	public boolean isSymmetric(TreeNode<T> root) {
+		if (root == null)
+			return true;
+		return isSymmetricHelper(root.left, root.right);
+	}
+	
+	// helper for 101. Symmetric Tree
+	public boolean isSymmetricHelper(TreeNode<T> left, TreeNode<T> right) {
+		if (left == null || right == null)
+			return (left == right);
+		
+		if (left.val != right.val)
+			return false;
+		
+		return isSymmetricHelper(left.left, right.right) && isSymmetricHelper(left.right, right.left);
+	}
+	
 }
