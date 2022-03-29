@@ -1,4 +1,4 @@
-package treeutils;
+package com.kranius.treeutils;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -7,9 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
-
-import com.kranius.treeutils.TreeNode;
-import com.kranius.treeutils.TreeUtils;
 
 // tests for 94 inorder binary tree traversal
 public class InorderTraversalTest {

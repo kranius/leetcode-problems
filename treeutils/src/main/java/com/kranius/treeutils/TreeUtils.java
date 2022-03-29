@@ -30,4 +30,14 @@ public class TreeUtils<T> {
 			inorderTraversalHelper(root.right, result);
 	}
 
+	// 100. Same Tree
+	public boolean isSameTree(TreeNode<T> p, TreeNode<T> q) {
+		if (p == null || q == null)
+			return (p == q);
+		
+		if (p.val == q.val)
+			return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+		
+		return false;
+	}
 }
