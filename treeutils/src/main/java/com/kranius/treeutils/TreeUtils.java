@@ -66,4 +66,46 @@ public class TreeUtils<T> {
 		return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
 	}
 	
+	// 108 convert sorted array to binary search tree
+	public TreeNode<Integer> sortedArrayToBST(int[] nums) {
+		return sortedArrayToBSTHelper(nums, 0, nums.length - 1);
+	}
+
+	private TreeNode<Integer> sortedArrayToBSTHelper(int[] nums, int left, int right) {
+		if (right < left)
+			return null;
+		int mid = left + (right - left) / 2;
+		TreeNode<Integer> root = new TreeNode<>(nums[mid]);
+		root.left = sortedArrayToBSTHelper(nums, left, mid - 1);
+		root.right = sortedArrayToBSTHelper(nums, mid + 1, right);
+		return root;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
