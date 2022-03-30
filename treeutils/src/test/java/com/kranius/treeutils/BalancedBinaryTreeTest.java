@@ -11,6 +11,11 @@ public class BalancedBinaryTreeTest {
 	private final TreeUtils<Integer> utils = new TreeUtils<>();
 
 	@Test
+	public void emptyTree() {
+		assertTrue(utils.isBalanced(new TreeNode<>(null)));
+	}
+	
+	@Test
 	public void properTree() {
 		var list = Arrays.asList(new Integer[] {3,9,20,null,null,15,7});
 		var root = utils.constructTreeFromList(list);
