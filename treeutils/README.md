@@ -14,8 +14,6 @@ I'm a bit rusty (starting with the easy ones), probably not the most optimized c
 [https://en.wikipedia.org/wiki/Graph_traversal](https://en.wikipedia.org/wiki/Graph_traversal)
 
 #### Implemented so far :
-
-
 - 094 Binary Tree Inorder Traversal
 - 100 Same Tree
 - 101 Symmetric Tree

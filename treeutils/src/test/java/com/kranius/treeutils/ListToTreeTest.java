@@ -11,9 +11,27 @@ public class ListToTreeTest {
 	private TreeUtils<Integer>	utils = new TreeUtils<>();
 	
 	@Test
+	public void nullTree() {
+		var actual = utils.constructTreeFromList(null);
+		
+		assertNull(actual);
+	}
+
+	@Test
 	public void emptyTree() {
-		var p = utils.constructTreeFromList(null);
-		assertNull(p);
+		var list = Arrays.asList(new Integer[] {});
+		var actual = utils.constructTreeFromList(list);
+		
+		assertNull(actual);
+	}
+	
+	@Test
+	public void oneElementTree() {
+		var list = Arrays.asList(new Integer[] {1});
+		var actual = utils.constructTreeFromList(list);
+		var expected = new TreeNode<>(1);
+		
+		assertTrue(utils.isSameTree(actual, expected));
 	}
 	
 	@Test
