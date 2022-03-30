@@ -71,6 +71,7 @@ public class TreeUtils<T> {
 		return sortedArrayToBSTHelper(nums, 0, nums.length - 1);
 	}
 
+	// helper for 108: sorted array to BST
 	private TreeNode<Integer> sortedArrayToBSTHelper(int[] nums, int left, int right) {
 		if (right < left)
 			return null;
@@ -80,6 +81,32 @@ public class TreeUtils<T> {
 		root.right = sortedArrayToBSTHelper(nums, mid + 1, right);
 		return root;
 	}
+	
+	// 110. balanced binary tree
+	// my solution doesn't seem optimal, we iterate through elements multiple time
+	public boolean isBalanced(TreeNode<T> root) {
+		if (root == null)
+			return true;
+		int left = computeHeight(root.left);
+		int right = computeHeight(root.right);
+		return Math.abs(left - right) <= 1 && isBalanced(root.left) && isBalanced(root.right);
+	}
+	
+	// helper for 110. balanced binary tree
+	public int computeHeight(TreeNode<T> root) {
+		if (root == null)
+			return 0;
+		return Math.max(computeHeight(root.left), computeHeight(root.right)) + 1;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
