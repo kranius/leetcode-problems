@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 public class IsSameTreeTest {
-	private TreeUtils<Integer> utils = new TreeUtils<>();
+	private final TreeUtils<Integer> utils = new TreeUtils<>();
 	private TreeNode<Integer> p;
 	private TreeNode<Integer> q;
 	
@@ -31,7 +31,6 @@ public class IsSameTreeTest {
 	@Test
 	public void asymetricTree() {
 		TreeNode<Integer> left = new TreeNode<>(2);
-		TreeNode<Integer> right = new TreeNode<>(3);
 		p = new TreeNode<>(1, left, null);
 		q = new TreeNode<>(1, null, left);
 		

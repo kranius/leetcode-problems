@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 // tests for 94 inorder binary tree traversal
 public class InorderTraversalTest {
 	
-	private TreeUtils<Integer> utils = new TreeUtils<>();
+	private final TreeUtils<Integer> utils = new TreeUtils<>();
 	private TreeNode<Integer> root;
 	private List<Integer> result;
 	

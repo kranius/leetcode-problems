@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
-import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
@@ -19,18 +18,18 @@ public class ListToTreeTest {
 	
 	@Test
 	public void basicTree() {
-		List<Integer> list = Arrays.asList(new Integer[] {1,2,3});
-		TreeNode<Integer> actual = utils.constructTreeFromList(list);
-		TreeNode<Integer> expected = new TreeNode<>(1, new TreeNode<>(2), new TreeNode<>(3));
+		var list = Arrays.asList(new Integer[] {1,2,3});
+		var actual = utils.constructTreeFromList(list);
+		var expected = new TreeNode<>(1, new TreeNode<>(2), new TreeNode<>(3));
 		
 		assertTrue(utils.isSameTree(actual, expected));
 	}
 	
 	@Test
 	public void onlyOneChild() {
-		List<Integer> list = Arrays.asList(new Integer[] {1,null,3});
-		TreeNode<Integer> actual = utils.constructTreeFromList(list);
-		TreeNode<Integer> expected = new TreeNode<>(1, null, new TreeNode<>(3));
+		var list = Arrays.asList(new Integer[] {1,null,3});
+		var actual = utils.constructTreeFromList(list);
+		var expected = new TreeNode<>(1, null, new TreeNode<>(3));
 		
 		assertTrue(utils.isSameTree(actual, expected));	
 	}
