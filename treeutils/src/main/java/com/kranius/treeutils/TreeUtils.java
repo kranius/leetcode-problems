@@ -6,13 +6,26 @@ import java.util.List;
 // implementations of leetcode tree manipulation functions
 public class TreeUtils<T> {
 	
+	public TreeNode<T> constructTreeFromList(List<T> list) {
+		if (list == null || list.isEmpty())
+			return null;
+		return constructTreeFromListHelper(list, 0);
+	}
+	
+	private TreeNode<T> constructTreeFromListHelper(List<T> list, int index) {
+		if (list.size() <= index || list.get(index) == null)
+			return null;
+		TreeNode<T> node = new TreeNode<>(list.get(index));
+		node.left = constructTreeFromListHelper(list, 2*index + 1);
+		node.right = constructTreeFromListHelper(list, 2*index + 2);
+		return node;
+	}
+
 	// 94. Binary Tree Inorder Traversal
 	// inorder traversal = left first
 	public List<T> inorderTraversal(TreeNode<T> root) {
 		List<T> result = new ArrayList<>();
-		
 		inorderTraversalHelper(root, result);
-		
 		return result;
 	}
 	
@@ -20,12 +33,9 @@ public class TreeUtils<T> {
 	private void inorderTraversalHelper(TreeNode<T> root, List<T> result) {
 		if (root == null)
 			return;
-		
 		if (root.left != null)
 			inorderTraversalHelper(root.left, result);
-		
 		result.add(root.val); // we add value after all left nodes are traversed
-		
 		if (root.right != null)
 			inorderTraversalHelper(root.right, result);
 	}
@@ -34,10 +44,8 @@ public class TreeUtils<T> {
 	public boolean isSameTree(TreeNode<T> p, TreeNode<T> q) {
 		if (p == null || q == null)
 			return (p == q);
-		
 		if (p.val == q.val)
 			return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
-		
 		return false;
 	}
 	
@@ -49,13 +57,11 @@ public class TreeUtils<T> {
 	}
 	
 	// helper for 101. Symmetric Tree
-	public boolean isSymmetricHelper(TreeNode<T> left, TreeNode<T> right) {
+	private boolean isSymmetricHelper(TreeNode<T> left, TreeNode<T> right) {
 		if (left == null || right == null)
 			return (left == right);
-		
 		if (left.val != right.val)
 			return false;
-		
 		return isSymmetricHelper(left.left, right.right) && isSymmetricHelper(left.right, right.left);
 	}
 	
