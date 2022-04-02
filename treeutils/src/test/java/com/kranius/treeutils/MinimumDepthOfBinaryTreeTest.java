@@ -3,7 +3,6 @@ package com.kranius.treeutils;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Arrays;
-import java.util.function.Function;
 
 import org.junit.jupiter.api.Test;
 
@@ -55,8 +54,16 @@ public class MinimumDepthOfBinaryTreeTest {
 		assertEquals(2, utils.minDepthDFS(actual));
 	}
 
-	
-	
+	@Test
+	public void simpleTreeBFS() {
+		var list = Arrays.asList(new Integer[] {1,2,3});
+		//var actual = utils.constructTreeFromList(list);
+		
+		TreeNode<Integer> root = new TreeNode<Integer>(1, new TreeNode<Integer>(2), new TreeNode<Integer>(3));
+		
+		assertEquals(2, utils.minDepthBFS(root));
+	}
+
 	
 	
 	

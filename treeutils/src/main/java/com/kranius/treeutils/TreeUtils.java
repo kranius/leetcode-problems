@@ -1,7 +1,9 @@
 package com.kranius.treeutils;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 // implementations of leetcode tree manipulation functions
 public class TreeUtils<T> {
@@ -121,18 +123,40 @@ public class TreeUtils<T> {
 	// here we use breadth first search
 	// wikipedia procedure :
 	//
-	//	   procedure BFS(G, root) is
-	//	       let Q be a queue
-	//	       label root as explored
-	//	       Q.enqueue(root)
-	//	       while Q is not empty do
-	//	           v := Q.dequeue()
-	//	           if v is the goal then
-	//	               return v
-	//	           for all edges from v to w in G.adjacentEdges(v) do
-	//	              if w is not labeled as explored then
-	//	                  label w as explored
-	//	                  Q.enqueue(w)
-	//	
+	// procedure BFS(G, root) is
+	// let Q be a queue
+	// label root as explored
+	// Q.enqueue(root)
+	// while Q is not empty do
+	// v := Q.dequeue()
+	// if v is the goal then
+	// return v
+	// for all edges from v to w in G.adjacentEdges(v) do
+	// if w is not labeled as explored then
+	// label w as explored
+	// Q.enqueue(w)
+	//
+	public int minDepthBFS(TreeNode<T> root) {
+		if (root == null)
+			return 0;
+		Queue<TreeNode<T>> queue = new LinkedList<TreeNode<T>>();
+		queue.offer(root);
+		int level = 1;
+
+		while (queue.isEmpty() == false) {
+			int size = queue.size();
+			for (int i = 0; i < size; i++) {
+				TreeNode<T> node = queue.poll();
+				if (node.left == null && node.right == null)
+					return level;
+				if (node.left != null)
+					queue.offer(node.left);
+				if (node.right != null)
+					queue.offer(node.right);
+			}
+			level++;
+		}
+		return level;
+	}
 
 }
