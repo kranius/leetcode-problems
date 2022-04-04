@@ -1,2 +1,2 @@
-# leetcode-trees
-My implementations for leetcode tree problems
+# leetcode-problems
+My implementations for leetcode problems
