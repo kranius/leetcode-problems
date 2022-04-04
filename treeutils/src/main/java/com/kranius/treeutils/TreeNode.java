@@ -8,7 +8,6 @@ public class TreeNode<T> {
 	TreeNode<T> right;
 	
 	public TreeNode() {
-		
 	}
 	
 	public TreeNode(T val) {
