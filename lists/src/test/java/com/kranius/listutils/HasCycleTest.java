@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class HasCycleTest {
 
@@ -30,6 +31,6 @@ public class HasCycleTest {
         liste.next = new ListNode<>(2);
         liste.next.next = liste;
 
-        assertFalse(utils.hasCycle(liste));
+        assertTrue(utils.hasCycle(liste));
     }
 }
