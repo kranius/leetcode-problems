@@ -6,10 +6,16 @@ public class ListNode<T> {
     ListNode<T> next;
 
     public ListNode() {
+        val = null;
+        next = null;
     }
 
     public ListNode(T x) {
         val = x;
         next = null;
+    }
+
+    public boolean compare(T val) {
+    return true;
     }
 }
