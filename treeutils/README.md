@@ -21,3 +21,4 @@ I'm a bit rusty (starting with the easy ones), probably not the most optimized c
 - 108 Sorted array to binary search tree
 - 110 Balanced binary tree
 - 111 Minimum depth of binary tree
+- 112 Path Sum

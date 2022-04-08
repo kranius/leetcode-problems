@@ -1,9 +1,6 @@
 package com.kranius.treeutils;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 // implementations of leetcode tree manipulation functions
 public class TreeUtils<T> {
@@ -158,5 +155,20 @@ public class TreeUtils<T> {
 		}
 		return level;
 	}
+
+	// 112. Path Sum
+	// root to leaf = sum
+	public  boolean hasPathSum(TreeNode<Integer> root, int targetSum) {
+		if (root == null)
+			return false;
+
+		if (root.val == null && root.right == null && targetSum-root.val == 0)
+			return true;
+
+		return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val);
+	}
+
+
+
 
 }
