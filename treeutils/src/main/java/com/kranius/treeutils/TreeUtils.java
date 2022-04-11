@@ -168,6 +168,28 @@ public class TreeUtils<T> {
 		return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val);
 	}
 
+	// 144. Binary tree preorder traversal
+	public List<T> preorderTraversal(TreeNode<T> root) {
+		List<T> result = new ArrayList<>();
+		preorderTraversalHelper(root, result);
+		return result;
+	}
+
+	// recursion helper for 144. preorder traversal
+	private List<T> preorderTraversalHelper(TreeNode<T> root, List<T> result) {
+		if (root == null)
+			return result;
+
+		result.add(root.val);
+
+		if (root.left != null)
+			preorderTraversalHelper(root.left, result);
+
+		if (root.right != null)
+			preorderTraversalHelper(root.right, result);
+
+		return result;
+	}
 
 
 
