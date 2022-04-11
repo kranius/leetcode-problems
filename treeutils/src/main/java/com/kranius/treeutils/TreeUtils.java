@@ -191,6 +191,27 @@ public class TreeUtils<T> {
 		return result;
 	}
 
+	// 145. Binary tree postorder traversal
+	public List<T> postorderTraversal(TreeNode<T> root) {
+		List<T> result = new ArrayList<>();
+		postorderTraversalHelper(root, result);
+		return result;
+	}
 
+	// recursion helper for 145. postorder traversal
+	private List<T> postorderTraversalHelper(TreeNode<T> root, List<T> result) {
+		if (root == null)
+			return result;
+
+		if (root.left != null)
+			postorderTraversalHelper(root.left, result);
+
+		if (root.right != null)
+			postorderTraversalHelper(root.right, result);
+
+		result.add(root.val);
+
+		return result;
+	}
 
 }
