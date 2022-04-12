@@ -34,6 +34,40 @@ public class Misc {
         return (sum == y);
     }
 
+    // 13. Roman to Integer
+    public int romanToInt(String s) {
+        int result = 0;
+        int previous = 0;
+
+        for (int i=0; i<s.length(); i++) {
+            char symbol = s.charAt(i);
+            int n = 0;
+            switch (symbol) {
+                case 'I':
+                    n = 1; break;
+                case 'V':
+                    n = 5; break;
+                case 'X':
+                    n = 10; break;
+                case 'L':
+                    n = 50; break;
+                case 'C':
+                    n = 100; break;
+                case 'D':
+                    n = 500; break;
+                case 'M':
+                    n = 1000; break;
+            }
+            if (previous < n) {         // if we had I, X, C before current symbol
+                result -= previous*2;   // they were added so we must remove them twice
+            }                           // once for this iteration and once for prev iteration
+            result += n;                // because we add regardless of symbol
+            previous = n;
+        }
+
+        return result;
+    }
+
     // 136 single number
     // we make use of xor property, if we xor chain all elements only the single one will be remaining
     // for all n, n xor n = 0
