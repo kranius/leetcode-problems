@@ -19,6 +19,21 @@ public class Misc {
         return null;
     }
 
+    // 9. Palindrome number
+    public boolean isPalindrome(int x) {
+        int y = x;
+        int sum = 0;
+        int r;
+
+        while (x > 0) {
+            r = x % 10;
+            sum = sum*10 + r;
+            x = x/10;
+        }
+
+        return (sum == y);
+    }
+
     // 136 single number
     // we make use of xor property, if we xor chain all elements only the single one will be remaining
     // for all n, n xor n = 0
