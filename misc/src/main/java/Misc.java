@@ -1,4 +1,23 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class Misc {
+
+    // 1 Two Sum
+    public int[] twoSum(int[] nums, int sum) {
+        Map<Integer, Integer> indexes = new HashMap<>();
+
+        for (int i=0; i<nums.length; i++) {
+            Integer target = sum - nums[i];
+            if (indexes.containsKey(target)) {
+                int[] result = {indexes.get(target), i};
+                return result;
+            }
+            indexes.put(nums[i], i);
+        }
+
+        return null;
+    }
 
     // 136 single number
     // we make use of xor property, if we xor chain all elements only the single one will be remaining
