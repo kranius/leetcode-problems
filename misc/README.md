@@ -6,4 +6,5 @@
 - 001 Two Sum
 - 009 Palindrome Number
 - 013 Roman to Integer
+- 069 sqrt(x)
 - 136 Single Number
