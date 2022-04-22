@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Misc {
 
@@ -9,7 +6,7 @@ public class Misc {
     public int[] twoSum(int[] nums, int sum) {
         Map<Integer, Integer> indexes = new HashMap<>();
 
-        for (int i=0; i<nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) {
             Integer target = sum - nums[i];
             if (indexes.containsKey(target)) {
                 int[] result = {indexes.get(target), i};
@@ -29,8 +26,8 @@ public class Misc {
 
         while (x > 0) {
             r = x % 10;
-            sum = sum*10 + r;
-            x = x/10;
+            sum = sum * 10 + r;
+            x = x / 10;
         }
 
         return (sum == y);
@@ -41,7 +38,7 @@ public class Misc {
         int result = 0;
         int previous = 0;
 
-        for (int i=0; i<s.length(); i++) {
+        for (int i = 0; i < s.length(); i++) {
             char symbol = s.charAt(i);
             int n = switch (symbol) {
                 case 'I' -> 1;
@@ -54,7 +51,7 @@ public class Misc {
                 default -> 0;
             };
             if (previous < n) {         // if we had I, X, C before current symbol
-                result -= previous*2;   // they were added so we must remove them twice
+                result -= previous * 2;   // they were added so we must remove them twice
             }                           // once for this iteration and once for prev iteration
             result += n;                // because we add regardless of symbol
             previous = n;
@@ -82,7 +79,7 @@ public class Misc {
         if (x == 0)
             return 0;
         int low = 1;
-        int high = x/2 + 1; // sqrt(x) is smaller than x/2
+        int high = x / 2 + 1; // sqrt(x) is smaller than x/2
 
         while (low < high) {
             int mid = low + (high - low) / 2;
@@ -100,14 +97,14 @@ public class Misc {
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> triangle = new ArrayList<>();
 
-        for (int i=0; i<numRows; i++) {
-            List<Integer> row =  new ArrayList<>();
+        for (int i = 0; i < numRows; i++) {
+            List<Integer> row = new ArrayList<>();
 
-            for (int j=0; j<i+1; j++) {
-                if (j==0 || j==i) {
+            for (int j = 0; j < i + 1; j++) {
+                if (j == 0 || j == i) {
                     row.add(1);
                 } else {
-                    row.add(triangle.get(i-1).get(j-1) + triangle.get(i-1).get(j));
+                    row.add(triangle.get(i - 1).get(j - 1) + triangle.get(i - 1).get(j));
                 }
             }
             triangle.add(row);
@@ -116,4 +113,34 @@ public class Misc {
         return triangle;
     }
 
+
+    // 20. Valid parenthesis
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+
+        for (Character c : s.toCharArray()) {
+            switch (c) {
+                case ']':
+                    if (stack.isEmpty() || stack.peek() != '[')
+                        return false;
+                    stack.pop();
+                    break;
+                case '}':
+                    if (stack.isEmpty() || stack.peek() != '{')
+                        return false;
+                    stack.pop();
+                    break;
+                case ')':
+                    if (stack.isEmpty() || stack.peek() != '(')
+                        return false;
+                    stack.pop();
+                    break;
+                default:
+                    stack.push(c);
+                    break;
+            }
+        }
+
+        return stack.isEmpty();
+    }
 }
