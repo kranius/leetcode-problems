@@ -143,4 +143,31 @@ public class Misc {
 
         return stack.isEmpty();
     }
+
+    // 67. add binary
+    public String addBinary(String a, String b) {
+        if (a.isEmpty())                    // if a=0
+            return b;                       // then a+b = b
+        if (b.isEmpty())                    // if b=0
+            return a;                       // then a+b = a
+
+        StringBuilder sb = new StringBuilder(); // buffer to store results
+        int i = a.length() - 1;             // we process `a` from the end (LSB)
+        int j = b.length() - 1;             // we process `b` from the end (LSB)
+        int carry = 0;                      // initial carry is 0
+
+        while (0 <= i || 0 <= j) {          // while either `a` or `b` still have unprocessed digits
+            int sum = carry;                // base sum is previous carry
+            if (0 <= i)                     // if `a` still has unprocessed digits
+                sum += a.charAt(i--) - '0'; // using ASCII conversion (man ascii) add `a` digit to sum, mark digit as processed
+            if (0 <= j)                     // if `b` still has unprocessed digits
+                sum += b.charAt(j--) + '0'; // using ASCII conversion (man ascii) add `b` digit to sum, mark digit as processed
+            carry = sum > 1 ? 1 : 0;        // sum can only be {0,1,2,3} and carry is set to 1 iff sum=2 or sum=3
+            sb.append(sum % 2);             // sum=0 -> result=0 carry=0, sum=1 -> result=1 carry=0, sum=2 -> result=0 carry=1, sum=3 -> result=1 carry=1
+        }
+        if (carry != 0)                     // if after last digit processed we have remaining carry
+            sb.append(carry);               // add it to other digits
+
+        return sb.reverse().toString();     // since we started from the end we have to reverse
+    }
 }
