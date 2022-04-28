@@ -9,8 +9,7 @@ public class Misc {
         for (int i = 0; i < nums.length; i++) {
             Integer target = sum - nums[i];
             if (indexes.containsKey(target)) {
-                int[] result = {indexes.get(target), i};
-                return result;
+                return new int[]{indexes.get(target), i};
             }
             indexes.put(nums[i], i);
         }
@@ -113,6 +112,10 @@ public class Misc {
         return triangle;
     }
 
+    // 119. Pascal's triangle II
+    public List<Integer> getRow(int rowIndex) {
+        return generate(rowIndex + 1).get(rowIndex);
+    }
 
     // 20. Valid parenthesis
     public boolean isValid(String s) {
