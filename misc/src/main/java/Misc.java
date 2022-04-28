@@ -173,4 +173,23 @@ public class Misc {
 
         return sb.reverse().toString();     // since we started from the end we have to reverse
     }
+
+    // 125. Valid Palindrome
+    public boolean isPalindrome(String s) {
+        return cleanString(s).reverse().toString().compareToIgnoreCase(cleanString(s).toString()) == 0;
+    }
+
+    // Helper for 125. Valid Palindrome
+    public StringBuilder cleanString(String s) {
+        StringBuilder sb = new StringBuilder();
+
+        for (Character c : s.toCharArray()) {
+            if (Character.isLetterOrDigit(c))
+                sb.append(c);
+        }
+
+        return sb;
+    }
+
+
 }
