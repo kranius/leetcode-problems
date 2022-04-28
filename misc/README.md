@@ -10,4 +10,5 @@
 - 069 sqrt(x)
 - 118 Pascal's triangle
 - 119 Pascal's triangle II
+- 125 Valid Palindrome
 - 136 Single Number
