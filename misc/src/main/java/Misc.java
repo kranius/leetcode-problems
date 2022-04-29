@@ -191,5 +191,21 @@ public class Misc {
         return sb;
     }
 
+    // 121 Best time to buy and sell stock
+    public int maxProfit(int[] prices) {
+        int maxProfit = 0;
+        int currentProfit = 0;
+        int lowestBuy = Integer.MAX_VALUE;
+
+        for (int i=0; i< prices.length; i++) {
+            if (prices[i] < lowestBuy)
+                lowestBuy = prices[i];
+            currentProfit = prices[i] - lowestBuy;
+            if (maxProfit < currentProfit)
+                maxProfit = currentProfit;
+        }
+
+        return maxProfit;
+    }
 
 }

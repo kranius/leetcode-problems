@@ -10,5 +10,6 @@
 - 069 sqrt(x)
 - 118 Pascal's triangle
 - 119 Pascal's triangle II
+- 121 Best Time to buy and sell stock
 - 125 Valid Palindrome
 - 136 Single Number
