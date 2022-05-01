@@ -14,3 +14,4 @@
 - 125 Valid Palindrome
 - 136 Single Number
 - 168 Excel sheet column title
+- 169 Majority element

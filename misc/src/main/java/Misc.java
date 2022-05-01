@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Stream;
 
 public class Misc {
 
@@ -222,4 +223,23 @@ public class Misc {
         return sb.reverse().toString();
     }
 
+    // 169. Majority Element
+    // probably a much smarter algorithm around
+    public int majorityElement(int[] nums) {
+        Map<Integer, Integer> hotmap = new HashMap<>();
+
+        for (int elem : nums) {
+            if (hotmap.containsKey(elem)) {
+                hotmap.put(elem,hotmap.get(elem) + 1);
+            } else {
+                hotmap.put(elem, 1);
+            }
+            if (hotmap.get(elem) > nums.length/2)
+                return elem;
+        }
+
+        hotmap.forEach((key, value) -> System.out.println(key + ":" + value));
+
+        return -1;
+    }
 }
