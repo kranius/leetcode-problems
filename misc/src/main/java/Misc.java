@@ -208,4 +208,18 @@ public class Misc {
         return maxProfit;
     }
 
+    // 168. Excel Sheet Column Title
+    public String convertToTitle(int columnNumber) {
+
+        StringBuilder sb = new StringBuilder();
+
+        while (columnNumber> 0) {
+            columnNumber--; // we skip 0 otherwise it's classic base 26
+            sb.append((char)('A' + columnNumber % 26));
+            columnNumber = columnNumber / 26;
+        }
+
+        return sb.reverse().toString();
+    }
+
 }
