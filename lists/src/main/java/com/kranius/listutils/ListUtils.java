@@ -38,4 +38,20 @@ public class ListUtils<T extends Comparable<T>> {
         }
         return head;
     }
+
+    // 160. Intersection of two Linked List
+    public ListNode<T> getIntersectionNode(ListNode<T> headA, ListNode<T> headB) {
+        if (headA == null || headB == null)
+            return null;
+
+        ListNode<T> a = headA;
+        ListNode<T> b = headB;
+
+        while (a != b) {
+            a = a == null ? headB : a.next;
+            b = b == null ? headA : b.next;
+        }
+
+        return a;
+    }
 }
