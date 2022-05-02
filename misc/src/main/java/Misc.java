@@ -242,4 +242,23 @@ public class Misc {
 
         return -1;
     }
+
+    // Actual smart solution for 169
+    // Boyer-Moore Majority Vote Algorithm
+    // see http://www.cs.utexas.edu/~moore/best-ideas/mjrty/
+    public int majorityElementSmart(int[] num) {
+
+        int major=num[0], count = 1;
+        for(int i=1; i<num.length;i++){
+            if(count==0){
+                count++;
+                major=num[i];
+            }else if(major==num[i]){
+                count++;
+            }else count--;
+
+        }
+        return major;
+    }
+
 }
