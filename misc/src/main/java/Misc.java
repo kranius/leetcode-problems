@@ -198,7 +198,7 @@ public class Misc {
         int currentProfit = 0;
         int lowestBuy = Integer.MAX_VALUE;
 
-        for (int i=0; i< prices.length; i++) {
+        for (int i = 0; i < prices.length; i++) {
             if (prices[i] < lowestBuy)
                 lowestBuy = prices[i];
             currentProfit = prices[i] - lowestBuy;
@@ -214,9 +214,9 @@ public class Misc {
 
         StringBuilder sb = new StringBuilder();
 
-        while (columnNumber> 0) {
+        while (columnNumber > 0) {
             columnNumber--; // we skip 0 otherwise it's classic base 26
-            sb.append((char)('A' + columnNumber % 26));
+            sb.append((char) ('A' + columnNumber % 26));
             columnNumber = columnNumber / 26;
         }
 
@@ -230,11 +230,11 @@ public class Misc {
 
         for (int elem : nums) {
             if (hotmap.containsKey(elem)) {
-                hotmap.put(elem,hotmap.get(elem) + 1);
+                hotmap.put(elem, hotmap.get(elem) + 1);
             } else {
                 hotmap.put(elem, 1);
             }
-            if (hotmap.get(elem) > nums.length/2)
+            if (hotmap.get(elem) > nums.length / 2)
                 return elem;
         }
 
@@ -248,17 +248,72 @@ public class Misc {
     // see http://www.cs.utexas.edu/~moore/best-ideas/mjrty/
     public int majorityElementSmart(int[] num) {
 
-        int major=num[0], count = 1;
-        for(int i=1; i<num.length;i++){
-            if(count==0){
+        int major = num[0], count = 1;
+        for (int i = 1; i < num.length; i++) {
+            if (count == 0) {
                 count++;
-                major=num[i];
-            }else if(major==num[i]){
+                major = num[i];
+            } else if (major == num[i]) {
                 count++;
-            }else count--;
+            } else count--;
 
         }
         return major;
     }
 
+
+    // 171. Excel sheet column number
+    public int titleToNumber(String columnTitle) {
+        int result = 0;
+        int power = 0;
+
+        for (int i = columnTitle.length() - 1; 0 <= i; i--) {
+            char c = columnTitle.charAt(i);
+            int digit = (int) c - 'A' + 1;
+            System.out.println("digit = " + digit);
+            digit = (int) (digit * Math.pow(26, power++));
+            result += digit;
+        }
+
+        return result;
+    }
+
+    // 190. Reverse Bits
+    public int reverseBits(int n) {
+        if (n == 0)
+            return 0;
+
+        int result = 0;
+
+        for (int i = 0; i < 32; i++) {
+            result <<= 1;
+            if ((n & 1) == 1)
+                result++;
+            n >>= 1;
+        }
+
+        return result;
+    }
+
+    public int base2to10(String str) {
+        int result = 0;
+        int pow = str.length() - 1;
+
+        for (Character c : str.toCharArray()) {
+            result += (c - '0') * (int)Math.pow(2, pow--);
+        }
+
+        return result;
+    }
+
+    public String base10to2_reverse(int n) {
+        StringBuilder binary = new StringBuilder();
+
+        while (n >= 1) {
+            binary.append(n % 2);
+            n = n / 2;
+        }
+
+        return binary.toString();
+    }
 }

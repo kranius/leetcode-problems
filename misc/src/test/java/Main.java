@@ -3,6 +3,10 @@ public class Main {
         Misc misc = new Misc();
 
 
-        System.out.println(misc.majorityElement(new int[]{2,2,1,1,1,2,2}));
+        System.out.println(misc.reverseBits(8));
+
+
+
+
     }
 }
