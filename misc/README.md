@@ -15,3 +15,5 @@
 - 136 Single Number
 - 168 Excel sheet column title
 - 169 Majority element
+- 171 Excel sheet colum number
+- 190 Reverse Bits
