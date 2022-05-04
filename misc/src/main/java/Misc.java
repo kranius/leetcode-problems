@@ -316,4 +316,37 @@ public class Misc {
 
         return binary.toString();
     }
+
+    // 191. Number of 1 bits (Hamming weight)
+    public int hammingWeight(int n) {
+        if (n == 0)
+            return 0;
+
+        int result = 0;
+
+        for (int i=0; i < 32; i++) {
+            if ((n & 1) == 1)
+                result++;
+            n >>= 1;
+        }
+
+        return result;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
