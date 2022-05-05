@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.stream.Stream;
 
 public class Misc {
 
@@ -38,8 +37,7 @@ public class Misc {
         int result = 0;
         int previous = 0;
 
-        for (int i = 0; i < s.length(); i++) {
-            char symbol = s.charAt(i);
+        for (char symbol : s.toCharArray()) {
             int n = switch (symbol) {
                 case 'I' -> 1;
                 case 'V' -> 5;
@@ -300,7 +298,7 @@ public class Misc {
         int pow = str.length() - 1;
 
         for (Character c : str.toCharArray()) {
-            result += (c - '0') * (int)Math.pow(2, pow--);
+            result += (c - '0') * (int) Math.pow(2, pow--);
         }
 
         return result;
@@ -324,7 +322,7 @@ public class Misc {
 
         int result = 0;
 
-        for (int i=0; i < 32; i++) {
+        for (int i = 0; i < 32; i++) {
             if ((n & 1) == 1)
                 result++;
             n >>= 1;
@@ -334,19 +332,24 @@ public class Misc {
     }
 
 
+    // 202. Happy Number
+    // naive (and probably bugged solution)
+    public boolean isHappy(int n) {
+        int sum = 0;
+        int len = 0;
 
+        if (n == 1 || n == 7)
+            return true;
 
+        while (0 < n) {
+            len++;
+            int digit = n % 10;
+            sum += digit * digit;
+            n /= 10;
+        }
 
-
-
-
-
-
-
-
-
-
-
+        return len == 1 ? false : isHappy(sum);
+    }
 
 
 }

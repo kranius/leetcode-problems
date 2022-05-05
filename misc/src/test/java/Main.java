@@ -3,7 +3,7 @@ public class Main {
         Misc misc = new Misc();
 
 
-        System.out.println(misc.reverseBits(8));
+        System.out.println(misc.isHappy(2));
 
 
 

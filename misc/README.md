@@ -18,3 +18,4 @@
 - 171 Excel sheet colum number
 - 190 Reverse Bits
 - 191 Number of 1 bits (Hamming weight)
+- 202 Happy number
