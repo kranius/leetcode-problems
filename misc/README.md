@@ -19,3 +19,4 @@
 - 190 Reverse Bits
 - 191 Number of 1 bits (Hamming weight)
 - 202 Happy number
+- 205 Isomorphic Strings
