@@ -54,4 +54,19 @@ public class ListUtils<T extends Comparable<T>> {
 
         return a;
     }
+
+    // 206. Reverse Linked List
+    public ListNode<T> reverseList(ListNode<T> head) {
+        ListNode<T> newHead = null;
+        ListNode<T> next = null;
+
+        while (head != null) {
+            next = head.next;
+            head.next = newHead;
+            newHead = head;
+            head = next;
+        }
+
+        return newHead;
+    }
 }
