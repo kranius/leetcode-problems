@@ -4,9 +4,5 @@ public class Main {
 
 
         System.out.println(misc.isHappy(2));
-
-
-
-
     }
 }

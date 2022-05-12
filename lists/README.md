@@ -12,4 +12,5 @@ I'm a bit rusty (starting with the easy ones), probably not the most optimized c
 - 21 Merge Two Sorted Lists
 - 141 Linked List Cycle
 - 160 Intersection of two Linked List
+- 203 Remove Linked List elements
 - 206 Reverse Linked List

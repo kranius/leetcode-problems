@@ -55,6 +55,16 @@ public class ListUtils<T extends Comparable<T>> {
         return a;
     }
 
+    // 203. Remove Linked List elements
+    public ListNode<T> removeElements(ListNode<T> head, T val) {
+        if (head == null)
+            return null;
+
+        head.next = removeElements(head.next, val);
+
+        return head.val.compareTo(val) == 0 ? head.next : head;
+    }
+
     // 206. Reverse Linked List
     public ListNode<T> reverseList(ListNode<T> head) {
         ListNode<T> newHead = null;

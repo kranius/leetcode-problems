@@ -15,6 +15,11 @@ public class ListNode<T> {
         next = null;
     }
 
+    public ListNode(T x, ListNode<T> e) {
+        this.val = x;
+        this.next = e;
+    }
+
     public boolean compare(T val) {
     return true;
     }
