@@ -1,11 +1,11 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class MyStackWithQueue {
+public class StackWithQueue {
 
     private Queue<Integer> q = new LinkedList<>();
 
-    public MyStackWithQueue() {
+    public StackWithQueue() {
 
     }
 
