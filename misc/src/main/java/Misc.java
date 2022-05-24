@@ -357,7 +357,7 @@ public class Misc {
         Map<Character, Integer> m1 = new HashMap<>();
         Map<Character, Integer> m2 = new HashMap<>();
 
-        for (Integer i = 0; i < s.length(); i++) {
+        for (int i = 0; i < s.length(); i++) {
             if (m1.put(s.charAt(i), i) != m2.put(t.charAt(i), i)) {
                 return false;
             }
@@ -390,5 +390,16 @@ public class Misc {
         }
 
         return false;
+    }
+
+    // 231 Power of two
+    public boolean isPowerOfTwo(int n) {
+        if (n < 1)
+            return false;
+
+        while (n % 2 == 0)
+            n /= 2;
+
+        return (n == 1);
     }
 }
