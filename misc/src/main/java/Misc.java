@@ -393,6 +393,7 @@ public class Misc {
     }
 
     // 231 Power of two
+    // O(log n)
     public boolean isPowerOfTwo(int n) {
         if (n < 1)
             return false;
@@ -401,5 +402,22 @@ public class Misc {
             n /= 2;
 
         return (n == 1);
+    }
+
+    // 232 power of two
+    //  O(1)
+    public boolean isFastPowerOfTwo(int n) {
+        return n > 0 && ((n & (n-1)) == 0);
+
+
+        /*
+
+    n = 2 ^ 0 = 1 = 0b0000...00000001, and (n - 1) = 0 = 0b0000...0000.
+    n = 2 ^ 1 = 2 = 0b0000...00000010, and (n - 1) = 1 = 0b0000...0001.
+    n = 2 ^ 2 = 4 = 0b0000...00000100, and (n - 1) = 3 = 0b0000...0011.
+    n = 2 ^ 3 = 8 = 0b0000...00001000, and (n - 1) = 7 = 0b0000...0111.
+
+    if n = 2^x, then n has only a single bit set to 1, thus n & (n - 1) = 0
+         */
     }
 }
