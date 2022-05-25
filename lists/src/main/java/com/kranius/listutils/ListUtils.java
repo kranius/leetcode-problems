@@ -79,4 +79,99 @@ public class ListUtils<T extends Comparable<T>> {
 
         return newHead;
     }
+
+    // 234. Palindrome Linked List
+    public boolean isPalindrome(ListNode<T> head) {
+
+        if (head == null)
+            return true;
+
+        ListNode<T> mid = halfList(head);
+        ListNode<T> secondHalf = reverseList(mid.next);
+
+        ListNode<T> p1 = head;
+        ListNode<T> p2 = secondHalf;
+        /* reverse 2nd half
+           check if 1st half and 2nd half are palindrome
+           reverse 2nd half again
+         */
+        boolean result = true;
+
+        while (result && p2 != null) {
+            if (p1.val.compareTo(p2.val) != 0)
+                result = false;
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+
+        mid.next = reverseList(secondHalf);
+
+        return result;
+    }
+
+    public ListNode<T> halfList(ListNode<T> head) {
+        if (head == null)
+            return null;
+
+        ListNode<T> slow = head;
+        ListNode<T> fast = head;
+
+        while (fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        return slow;
+    }
 }
+
+/*
+   public boolean isPalindrome(ListNode head) {
+        if (head == null)
+            return true;
+
+        ListNode mid = halfList(head);
+        ListNode secondHalf = reverseList(mid.next);
+
+        ListNode p1 = head;
+        ListNode p2 = secondHalf;
+        boolean result = true;
+
+        while (result && p2 != null) {
+            if (p1.val != p2.val)
+                result = false;
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+
+        mid.next = reverseList(secondHalf);
+
+        return result;
+    }
+
+    public ListNode reverseList(ListNode head) {
+        ListNode prev = null;
+        ListNode curr = head;
+
+        while (curr != null) {
+            ListNode next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        return prev;
+    }
+
+    public ListNode halfList(ListNode head) {
+        ListNode fast = head;
+        ListNode slow = head;
+
+        while (fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        return slow;
+    }
+ */
