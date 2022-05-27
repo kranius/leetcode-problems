@@ -24,3 +24,4 @@ I'm a bit rusty (starting with the easy ones), probably not the most optimized c
 - 112 Path Sum
 - 144 Binary tree preorder traversal
 - 145 Binary tree postorder traversal
+- 235 Lowest Common Ancestor of a BST

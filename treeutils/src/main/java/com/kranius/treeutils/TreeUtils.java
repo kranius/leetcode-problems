@@ -214,4 +214,17 @@ public class TreeUtils<T> {
 		return result;
 	}
 
+
+	// 235. Lowest Common Ancestor of a BST
+	// p and q are in the same subtree <=> both p and q are smaller or both p and q are bigger than root
+	public TreeNode<Integer> lowestCommonAncestor(TreeNode<Integer> root, TreeNode<Integer> p, TreeNode<Integer> q) {
+		// 3 cases :
+		// p and q are smaller than root (we check left subtree)
+		// p and q are bigger (we check right subtree)
+		// otherwise ancestor = current root
+
+		while ((root.val - p.val) * (root.val - q.val) > 0) // we check the sign of the product of the difference
+			root = p.val < root.val ? root.left : root.right; // if p and q smaller we go left else we go right
+		return root;
+	}
 }
