@@ -23,3 +23,4 @@
 - 217 Contains Duplicate Elements
 - 219 Contains Duplicate Elements II
 - 231 Power of two
+- 242 Valid Anagram
