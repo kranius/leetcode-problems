@@ -227,4 +227,33 @@ public class TreeUtils<T> {
 			root = p.val < root.val ? root.left : root.right; // if p and q smaller we go left else we go right
 		return root;
 	}
+
+
+	// 257 Binary Tree Paths
+	public List<String> binaryTreePaths(TreeNode<T> root) {
+		List<String> result = new ArrayList<>();
+		StringBuilder sb = new StringBuilder();
+
+		binaryTreePathsHelper(result, root, sb);
+
+		return result;
+	}
+
+	private void binaryTreePathsHelper(List<String> result, TreeNode<T> root, StringBuilder sb) {
+		if (root == null) {
+			return;
+		}
+
+		int len = sb.length();
+		sb.append(root.val);
+
+		if (root.left == null && root.right == null) {
+			result.add(sb.toString());
+		} else {
+			sb.append("->");
+			binaryTreePathsHelper(result, root.left, sb);
+			binaryTreePathsHelper(result, root.right, sb);
+		}
+		sb.setLength(len);
+	}
 }
