@@ -25,3 +25,4 @@
 - 231 Power of two
 - 242 Valid Anagram
 - 258 Add Digits
+- 263 Ugly Number
