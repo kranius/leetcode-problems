@@ -505,4 +505,33 @@ public class Misc {
 
         return left;
     }
+
+    // 283. Move Zeroes
+    public void moveZeroes(int[] nums) {
+        int lastPosition = 0;
+
+        for (int i=0; i<nums.length; i++) {
+            if (nums[i] != 0)
+                nums[lastPosition++] = nums[i];
+        }
+
+        for (int i=lastPosition; i<nums.length; i++) {
+            nums[i] = 0;
+        }
+    }
+
+    // 290 Word Pattern
+    public boolean wordPattern(String pattern, String str) {
+        String[] words = str.split(" ");
+        Map index = new HashMap();
+
+        if (words.length != pattern.length())
+            return false;
+
+        for (Integer i = 0; i < words.length; ++i)
+            if (index.put(pattern.charAt(i), i) != index.put(words[i], i))
+                return false;
+
+        return true;
+    }
 }

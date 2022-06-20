@@ -28,3 +28,5 @@
 - 263 Ugly Number
 - 268 Missing Number
 - 278 First Bad Version
+- 283 Move Zeroes
+- 290 Word Pattern
