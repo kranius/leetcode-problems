@@ -534,4 +534,11 @@ public class Misc {
 
         return true;
     }
+
+    // 292 Nim Game
+    // i propably misunderstood this one
+    public boolean canWinNim(int n)
+    {
+        return n%4 != 0;
+    }
 }

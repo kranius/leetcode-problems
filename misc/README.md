@@ -28,3 +28,4 @@
 - 263 Ugly Number
 - 268 Missing Number
 - 278 First Bad Version
+- 292 Nim Game
