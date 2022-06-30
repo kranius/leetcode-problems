@@ -31,3 +31,4 @@
 - 292 Nim Game
 - 303 Range Sum Query
 - 326 Power of Three
+- 338 Counting Bits

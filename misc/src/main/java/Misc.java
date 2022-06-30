@@ -552,4 +552,31 @@ public class Misc {
 
         return n == 1;
     }
+
+    // same as Hamming weight's, see 191
+    public int numberOfOneBits(int n)
+    {
+        if (n == 0)
+            return 0;
+
+        int result = 0;
+
+        for (int i = 0; i < 32; i++) {
+            if ((n & 1) == 1)
+                result++;
+            n >>= 1;
+        }
+
+        return result;
+    }
+
+    // 338. Counting Bits
+    public int[] countBits(int n) {
+        int[] result = new int[n+1];
+
+        for (int i = 0; i <= n; i++)
+            result[i] = numberOfOneBits(i);
+
+        return result;
+    }
 }
