@@ -29,3 +29,4 @@
 - 268 Missing Number
 - 278 First Bad Version
 - 292 Nim Game
+- 303 Range Sum Query
