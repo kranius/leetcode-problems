@@ -30,3 +30,4 @@
 - 278 First Bad Version
 - 292 Nim Game
 - 303 Range Sum Query
+- 326 Power of Three
