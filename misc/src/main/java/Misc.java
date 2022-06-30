@@ -591,4 +591,15 @@ public class Misc {
 
         return n == 1;
     }
+
+    public boolean isPowerOf(int n, int m)
+    {
+        if (n < 1)
+            return false;
+
+        while (n % m == 0)
+            n /= m;
+
+        return n == 1;
+    }
 }
