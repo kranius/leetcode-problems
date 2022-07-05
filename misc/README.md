@@ -34,3 +34,4 @@
 - 338 Counting Bits
 - 342 Power of Four
 - 367 Valid Perfect Square
+- 374 Guess Number Higher or Lower

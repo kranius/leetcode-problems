@@ -615,4 +615,30 @@ public class Misc {
         return num == 0;
     }
 
+    int guess(int n)
+    {
+        return Integer.compare(n, 42);
+    }
+
+    // 374. Guess Number Higher or Lower
+    public int guessNumber(int n) {
+        int low = 1;
+        int high = n;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            int ret = guess(mid);
+
+            if (ret < 0) {
+                high = mid - 1;
+            } else if (ret > 0) {
+                low = mid + 1;
+            } else {
+                return mid;
+            }
+        }
+
+        return -1;
+    }
+
 }
