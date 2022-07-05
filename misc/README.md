@@ -33,3 +33,4 @@
 - 326 Power of Three
 - 338 Counting Bits
 - 342 Power of Four
+- 367 Valid Perfect Square
