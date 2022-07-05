@@ -7,3 +7,4 @@ Some of my solutions are in the 'misc' module
 - 344 Reverse String
 - 345 Reverse Vowels of a String
 - 383 Ransom Note
+- 387 First Unique Character in a String
