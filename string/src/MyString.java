@@ -47,10 +47,12 @@ public class MyString {
         for (char c : magazine.toCharArray())
             alphabets_counter[c-'a']++;
 
-        for (char c : ransomNote.toCharArray()){
-            if (alphabets_counter[c-'a'] == 0) return false;
+        for (char c : ransomNote.toCharArray()) {
+            if (alphabets_counter[c-'a'] == 0)
+                return false;
             alphabets_counter[c-'a']--;
         }
+
         return true;
     }
 }
