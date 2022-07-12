@@ -74,4 +74,19 @@ public class MyString {
 
         return -1;
     }
+
+    // 389. Find the Difference
+    // also possible to use XOR heure
+    char findTheDifference(String s, String t)
+    {
+        char res = 0;
+
+        for (char c : t.toCharArray())
+            res += c;
+
+        for (char c : s.toCharArray())
+            res -= c;
+
+        return res;
+    }
 }
